@@ -8,6 +8,7 @@ public class Thread_constractor implements Runnable{
 	List<String>l = new ArrayList<String>();
 	static String player;
 	static String player_second;
+	static String player_third;
 	int size;
 	
 	public  Thread_constractor (List<String> l){
@@ -25,6 +26,11 @@ public class Thread_constractor implements Runnable{
 		try{
 			player_second = l.get(size-2);
 			player_second = player_second.substring((player_second.indexOf(" "))+1);
+		}catch(Exception ex){}	
+		
+		try{
+			player_third = l.get(size-3);
+			player_third = player_third.substring((player_third.indexOf(" "))+1);
 		}catch(Exception ex){}	
 	}
 }
