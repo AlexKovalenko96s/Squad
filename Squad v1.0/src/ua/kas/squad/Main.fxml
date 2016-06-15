@@ -19,6 +19,7 @@
             </Button>
             <ComboBox fx:id="cb" layoutX="100.0" layoutY="60.0" onAction="#enter_scheme" prefWidth="150.0" />
             <CheckBox fx:id="cb_pos" layoutX="27.0" layoutY="110.0" mnemonicParsing="false" text="Потбор схожих позиций" />
+            <CheckBox fx:id="cb_cond" layoutX="27.0" layoutY="134.0" mnemonicParsing="false" text="C учетом кондиций(~10)" />
          </children>
       </AnchorPane>
       <ImageView fx:id="lane" fitHeight="400.0" fitWidth="350.0" layoutX="350.0" pickOnBounds="true" />

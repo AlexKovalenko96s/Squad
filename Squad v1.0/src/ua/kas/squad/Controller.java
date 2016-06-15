@@ -26,10 +26,13 @@ public class Controller implements Initializable {
 	@FXML
 	CheckBox cb_pos;
 	@FXML
+	CheckBox cb_cond;
+	@FXML
 	AnchorPane pane;
 	@FXML
 	ImageView lane;
-	static String sravnenie1_skill, sravnenie2_skill, sravnenie1_name, sravnenie2_name;
+	static String sravnenie1_skill, sravnenie2_skill, sravnenie1_name, sravnenie2_name, sravnenie1_condition,
+			sravnenie2_condition;
 	static String name1, name2, name3, name4, name5, name6, name7, name8, name9, name10, name0;
 	ObservableList<String> obs_list;
 	@FXML
@@ -188,22 +191,21 @@ public class Controller implements Initializable {
 
 			while (myRs.next()) {
 				if (shemas[i].equals("gk")) {
-					l_gk.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_gk.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_gk));
 					t.start();
 					t.join();
 					name0 = Thread_constractor.player;
 				}
 				if (shemas[i].equals("cb")) {
-					l_cb.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_cb.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_cb));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
-						name1 = Thread_constractor.player;
-						name2 = Thread_constractor.player_second;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
 						name1 = Thread_constractor.player;
 						name2 = Thread_constractor.player_second;
 					}
@@ -214,189 +216,263 @@ public class Controller implements Initializable {
 					}
 				}
 				if (shemas[i].equals("rb")) {
-					l_rb.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_rb.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_rb));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
-						name4 = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
 						name4 = Thread_constractor.player;
 					}
 					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
 					}
 				}
 				if (shemas[i].equals("lb")) {
-					l_lb.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_lb.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_lb));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
-						name3 = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
 						name3 = Thread_constractor.player;
 					}
 					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
 					}
 				}
 				if (shemas[i].equals("cm")) {
-					l_cm.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_cm.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_cm));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
-						name5 = Thread_constractor.player;
-						name6 = Thread_constractor.player_second;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
-						name5 = Thread_constractor.player;
-						name6 = Thread_constractor.player_second;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("4-3-3")
+							|| cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
 						name5 = Thread_constractor.player;
 						name6 = Thread_constractor.player_second;
 					}
 				}
 				if (shemas[i].equals("cam")) {
-					l_cam.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_cam.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_cam));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
-						name7 = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
-						name7 = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("4-3-3")
+							|| cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
 						name7 = Thread_constractor.player;
 					}
 				}
 				if (shemas[i].equals("lm")) {
-					l_lm.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_lm.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_lm));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
-						if (cb_pos.isSelected()) {
+					if ((cb.getSelectionModel().getSelectedItem().equals("4-2-3-1"))
+							|| cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
+						if (cb_pos.isSelected() && cb_cond.isSelected()) {
+							if (Integer.parseInt(sravnenie1_skill) > (Integer.parseInt(Thread_constractor.skill))
+									&& (((Integer.parseInt(sravnenie1_condition)) - 10) > Integer
+											.parseInt(Thread_constractor.condition))) {
+								name8 = sravnenie1_name;
+							} else {
+								if ((Integer.parseInt(Thread_constractor.condition_second) > (Integer
+										.parseInt(Thread_constractor.condition) + 10))
+										&& (Integer.parseInt(Thread_constractor.skill_second) < Integer
+												.parseInt(Thread_constractor.skill) - 2) != true) {
+									name8 = Thread_constractor.player_second;
+								} else {
+									name8 = Thread_constractor.player;
+								}
+							}
+						}
+						if (cb_pos.isSelected() && cb_cond.isSelected() == false) {
 							if (Integer.parseInt(Thread_constractor.skill) >= Integer.parseInt(sravnenie1_skill)) {
 								name8 = Thread_constractor.player;
 							} else {
 								name8 = sravnenie1_name;
 							}
-						} else {
+						}
+						if (cb_pos.isSelected() == false && cb_cond.isSelected()) {
+							if (Integer.parseInt(Thread_constractor.condition_second) > (Integer
+									.parseInt(Thread_constractor.condition)) + 10) {
+								name8 = Thread_constractor.player_second;
+							} else {
+								name8 = Thread_constractor.player;
+							}
+						}
+						if (cb_pos.isSelected() == false && cb_cond.isSelected() == false) {
 							name8 = Thread_constractor.player;
 						}
 					}
 					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
 						sravnenie1_skill = Thread_constractor.skill;
 						sravnenie1_name = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
-						if (cb_pos.isSelected()) {
-							if (Integer.parseInt(Thread_constractor.skill) >= Integer.parseInt(sravnenie1_skill)) {
-								name8 = Thread_constractor.player;
-							} else {
-								name8 = sravnenie1_name;
-							}
-						} else {
-							name8 = Thread_constractor.player;
-						}
+						sravnenie1_condition = Thread_constractor.condition;
 					}
 				}
 				if (shemas[i].equals("lw")) {
-					l_lw.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_lw.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_lw));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
 						sravnenie1_skill = Thread_constractor.skill;
 						sravnenie1_name = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
-						sravnenie1_skill = Thread_constractor.skill;
-						sravnenie1_name = Thread_constractor.player;
+						sravnenie1_condition = Thread_constractor.condition;
 					}
 					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
-						if (cb_pos.isSelected()) {
+						if (cb_pos.isSelected() && cb_cond.isSelected()) {
+							if (Integer.parseInt(sravnenie1_skill) > (Integer.parseInt(Thread_constractor.skill))
+									&& (((Integer.parseInt(sravnenie1_condition)) - 10) > Integer
+											.parseInt(Thread_constractor.condition))) {
+								name8 = sravnenie1_name;
+							} else {
+								if ((Integer.parseInt(Thread_constractor.condition_second) > (Integer
+										.parseInt(Thread_constractor.condition) + 10))
+										&& (Integer.parseInt(Thread_constractor.skill_second) < Integer
+												.parseInt(Thread_constractor.skill) - 2) != true) {
+									name8 = Thread_constractor.player_second;
+								} else {
+									name8 = Thread_constractor.player;
+								}
+							}
+						}
+						if (cb_pos.isSelected() && cb_cond.isSelected() == false) {
 							if (Integer.parseInt(Thread_constractor.skill) >= Integer.parseInt(sravnenie1_skill)) {
 								name8 = Thread_constractor.player;
 							} else {
 								name8 = sravnenie1_name;
 							}
-						} else {
+						}
+						if (cb_pos.isSelected() == false && cb_cond.isSelected()) {
+							if (Integer.parseInt(Thread_constractor.condition_second) > (Integer
+									.parseInt(Thread_constractor.condition)) + 10) {
+								name8 = Thread_constractor.player_second;
+							} else {
+								name8 = Thread_constractor.player;
+							}
+						}
+						if (cb_pos.isSelected() == false && cb_cond.isSelected() == false) {
 							name8 = Thread_constractor.player;
 						}
 					}
 				}
 				if (shemas[i].equals("rm")) {
-					l_rm.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_rm.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_rm));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
-						if (cb_pos.isSelected()) {
-							if (Integer.parseInt(Thread_constractor.skill) >= Integer.parseInt(sravnenie2_skill)) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
+						if (cb_pos.isSelected() && cb_cond.isSelected()) {
+							if (Integer.parseInt(sravnenie1_skill) > (Integer.parseInt(Thread_constractor.skill))
+									&& (((Integer.parseInt(sravnenie1_condition)) - 10) > Integer
+											.parseInt(Thread_constractor.condition))) {
+								name9 = sravnenie2_name;
+							} else {
+								if ((Integer.parseInt(Thread_constractor.condition_second) > (Integer
+										.parseInt(Thread_constractor.condition) + 10))
+										&& (Integer.parseInt(Thread_constractor.skill_second) < Integer
+												.parseInt(Thread_constractor.skill) - 2) != true) {
+									name9 = Thread_constractor.player_second;
+								} else {
+									name9 = Thread_constractor.player;
+								}
+							}
+						}
+						if (cb_pos.isSelected() && cb_cond.isSelected() == false) {
+							if (Integer.parseInt(Thread_constractor.skill) >= Integer.parseInt(sravnenie1_skill)) {
 								name9 = Thread_constractor.player;
 							} else {
 								name9 = sravnenie2_name;
 							}
-						} else {
+						}
+						if (cb_pos.isSelected() == false && cb_cond.isSelected()) {
+							if (Integer.parseInt(Thread_constractor.condition_second) > (Integer
+									.parseInt(Thread_constractor.condition)) + 10) {
+								name9 = Thread_constractor.player_second;
+							} else {
+								name9 = Thread_constractor.player;
+							}
+						}
+						if (cb_pos.isSelected() == false && cb_cond.isSelected() == false) {
 							name9 = Thread_constractor.player;
 						}
 					}
 					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
 						sravnenie2_skill = Thread_constractor.skill;
 						sravnenie2_name = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
-						if (cb_pos.isSelected()) {
-							if (Integer.parseInt(Thread_constractor.skill) >= Integer.parseInt(sravnenie2_skill)) {
-								name9 = Thread_constractor.player;
-							} else {
-								name9 = sravnenie2_name;
-							}
-						} else {
-							name9 = Thread_constractor.player;
-						}
+						sravnenie2_condition = Thread_constractor.condition;
 					}
 				}
 				if (shemas[i].equals("rw")) {
-					l_rw.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_rw.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_rw));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
 						sravnenie2_skill = Thread_constractor.skill;
 						sravnenie2_name = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
-						sravnenie2_skill = Thread_constractor.skill;
-						sravnenie2_name = Thread_constractor.player;
+						sravnenie2_condition = Thread_constractor.condition;
 					}
 					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
-						if (cb_pos.isSelected()) {
-							if (Integer.parseInt(Thread_constractor.skill) >= Integer.parseInt(sravnenie2_skill)) {
-								name9 = Thread_constractor.player;
-							} else {
-								name9 = sravnenie2_name;
+						if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+								|| cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
+							if (cb_pos.isSelected() && cb_cond.isSelected()) {
+								if (Integer.parseInt(sravnenie1_skill) > (Integer.parseInt(Thread_constractor.skill))
+										&& (((Integer.parseInt(sravnenie1_condition)) - 10) > Integer
+												.parseInt(Thread_constractor.condition))) {
+									name9 = sravnenie2_name;
+								} else {
+									if ((Integer.parseInt(Thread_constractor.condition_second) > (Integer
+											.parseInt(Thread_constractor.condition) + 10))
+											&& (Integer.parseInt(Thread_constractor.skill_second) < Integer
+													.parseInt(Thread_constractor.skill) - 2) != true) {
+										name9 = Thread_constractor.player_second;
+									} else {
+										name9 = Thread_constractor.player;
+									}
+								}
 							}
-						} else {
-							name9 = Thread_constractor.player;
+							if (cb_pos.isSelected() && cb_cond.isSelected() == false) {
+								if (Integer.parseInt(Thread_constractor.skill) >= Integer.parseInt(sravnenie1_skill)) {
+									name9 = Thread_constractor.player;
+								} else {
+									name9 = sravnenie2_name;
+								}
+							}
+							if (cb_pos.isSelected() == false && cb_cond.isSelected()) {
+								if (Integer.parseInt(Thread_constractor.condition_second) > (Integer
+										.parseInt(Thread_constractor.condition)) + 10) {
+									name9 = Thread_constractor.player_second;
+								} else {
+									name9 = Thread_constractor.player;
+								}
+							}
+							if (cb_pos.isSelected() == false && cb_cond.isSelected() == false) {
+								name9 = Thread_constractor.player;
+							}
 						}
 					}
 				}
 				if (shemas[i].equals("st")) {
-					l_st.add(myRs.getString("skill") + " " + myRs.getString("Name"));
+					l_st.add(myRs.getString("skill") + "  " + myRs.getString("Name") + "  "
+							+ myRs.getString("condition"));
 					Thread t = new Thread(new Thread_constractor(l_st));
 					t.start();
 					t.join();
-					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")) {
-						name10 = Thread_constractor.player;
-					}
-					if (cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
+					if (cb.getSelectionModel().getSelectedItem().equals("4-2-3-1")
+							|| cb.getSelectionModel().getSelectedItem().equals("4-3-3")) {
 						name10 = Thread_constractor.player;
 					}
 					if (cb.getSelectionModel().getSelectedItem().equals("3-2-3-2")) {
